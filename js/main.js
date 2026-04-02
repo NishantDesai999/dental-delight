@@ -270,7 +270,7 @@
       '• Preferred Date: ' + date + '\n\n' +
       'Please let me know the available slots. Thank you!';
 
-    const waURL = 'https://wa.me/919876543210?text=' + encodeURIComponent(message);
+    const waURL = 'https://wa.me/919023039280?text=' + encodeURIComponent(message);
     window.open(waURL, '_blank', 'noopener');
 
     // Reset and close
