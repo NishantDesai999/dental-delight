@@ -285,4 +285,230 @@
     dateInput.setAttribute('min', today);
   }
 
+  /* ── 8. Instagram Feed ─────────────────────────────────── */
+  function loadInstagramFeed() {
+    var feedEl = document.querySelector('.instagram-feed');
+    var gridEl = document.getElementById('ig-posts-grid');
+    if (!feedEl || !gridEl) return;
+
+    fetch('data/instagram.json')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        var posts = data.posts || [];
+        if (!posts.length) {
+          feedEl.style.display = 'none';
+          return;
+        }
+
+        posts.forEach(function (post) {
+          var card = document.createElement('div');
+          card.className = 'ig-card';
+
+          var img = document.createElement('img');
+          img.src = post.media_url;
+          img.alt = 'Instagram post';
+          img.loading = 'lazy';
+
+          var body = document.createElement('div');
+          body.className = 'ig-card-body';
+
+          var caption = document.createElement('p');
+          caption.className = 'ig-card-caption';
+          var raw = (post.caption || '').trim();
+          caption.textContent = raw.length > 120 ? raw.slice(0, 120) + '…' : raw;
+
+          var link = document.createElement('a');
+          link.className = 'ig-card-link';
+          link.href = post.permalink;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = 'View post →';
+
+          body.appendChild(caption);
+          body.appendChild(link);
+          card.appendChild(img);
+          card.appendChild(body);
+          gridEl.appendChild(card);
+        });
+
+        // Re-trigger fade-in observer for newly added cards
+        if ('IntersectionObserver' in window) {
+          var cardObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('visible');
+                  cardObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+          );
+          gridEl.querySelectorAll('.ig-card').forEach(function (card) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            cardObserver.observe(card);
+          });
+        }
+      })
+      .catch(function () {
+        if (feedEl) feedEl.style.display = 'none';
+      });
+  }
+
+  loadInstagramFeed();
+
+  /* ── 9. Reviews Carousel ─────────────────────────────── */
+  (function initReviewsCarousel() {
+    var viewport = document.getElementById('reviews-viewport');
+    var track = document.getElementById('reviews-track');
+    var dotsContainer = document.getElementById('carousel-dots');
+    var arrowLeft = document.querySelector('.carousel-arrow--left');
+    var arrowRight = document.querySelector('.carousel-arrow--right');
+
+    if (!viewport || !track || !dotsContainer) return;
+
+    var cards = track.querySelectorAll('.review-card');
+    var totalCards = cards.length;
+    var currentIndex = 0;
+    var cardsPerView = 3;
+    var autoPlayInterval = null;
+    var AUTO_PLAY_DELAY = 4000;
+
+    function getCardsPerView() {
+      if (window.innerWidth <= 480) return 1;
+      if (window.innerWidth <= 768) return 2;
+      return 3;
+    }
+
+    function getTotalPages() {
+      return Math.ceil(totalCards / cardsPerView);
+    }
+
+    function buildDots() {
+      dotsContainer.innerHTML = '';
+      var pages = getTotalPages();
+      for (var i = 0; i < pages; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to review group ' + (i + 1));
+        dot.setAttribute('role', 'tab');
+        (function(idx) {
+          dot.addEventListener('click', function() {
+            currentIndex = idx * cardsPerView;
+            if (currentIndex > totalCards - cardsPerView) {
+              currentIndex = totalCards - cardsPerView;
+            }
+            updateCarousel();
+            resetAutoPlay();
+          });
+        })(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      var currentPage = Math.floor(currentIndex / cardsPerView);
+      var dots = dotsContainer.querySelectorAll('.carousel-dot');
+      dots.forEach(function(dot, i) {
+        dot.classList.toggle('active', i === currentPage);
+      });
+    }
+
+    function updateCarousel() {
+      var cardWidth = cards[0].offsetWidth;
+      var gap = 17.6; // 1.1rem in px
+      var offset = currentIndex * (cardWidth + gap);
+      track.style.transform = 'translateX(-' + offset + 'px)';
+      updateDots();
+    }
+
+    function goNext() {
+      cardsPerView = getCardsPerView();
+      var maxIndex = totalCards - cardsPerView;
+      if (currentIndex >= maxIndex) {
+        currentIndex = 0;
+      } else {
+        currentIndex = Math.min(currentIndex + cardsPerView, maxIndex);
+      }
+      updateCarousel();
+    }
+
+    function goPrev() {
+      cardsPerView = getCardsPerView();
+      var maxIndex = totalCards - cardsPerView;
+      if (currentIndex <= 0) {
+        currentIndex = maxIndex;
+      } else {
+        currentIndex = Math.max(currentIndex - cardsPerView, 0);
+      }
+      updateCarousel();
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(goNext, AUTO_PLAY_DELAY);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+      }
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    // Arrow buttons
+    if (arrowRight) arrowRight.addEventListener('click', function() { goNext(); resetAutoPlay(); });
+    if (arrowLeft) arrowLeft.addEventListener('click', function() { goPrev(); resetAutoPlay(); });
+
+    // Pause on hover
+    viewport.addEventListener('mouseenter', stopAutoPlay);
+    viewport.addEventListener('mouseleave', startAutoPlay);
+
+    // Touch/swipe support
+    var touchStartX = 0;
+    var touchEndX = 0;
+
+    viewport.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoPlay();
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goNext(); else goPrev();
+      }
+      startAutoPlay();
+    }, { passive: true });
+
+    // Resize handler
+    window.addEventListener('resize', function() {
+      cardsPerView = getCardsPerView();
+      buildDots();
+      if (currentIndex > totalCards - cardsPerView) {
+        currentIndex = totalCards - cardsPerView;
+      }
+      updateCarousel();
+    });
+
+    // Init
+    cardsPerView = getCardsPerView();
+    buildDots();
+    updateCarousel();
+    startAutoPlay();
+  })();
+
+  /* ── 10. Initialize Lucide icons ─────────────────────── */
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+
 })();

@@ -1,0 +1,39 @@
+name: Refresh Instagram Access Token
+
+on:
+  schedule:
+    # Every 50 days at 3:00 AM UTC (long-lived tokens expire after ~60 days)
+    - cron: '0 3 */50 * *'
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      secrets: write   # needed to update the repo secret via gh CLI
+
+    steps:
+      - name: Refresh long-lived token
+        id: refresh
+        run: |
+          RESPONSE=$(curl -s \
+            "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${{ secrets.INSTAGRAM_ACCESS_TOKEN }}")
+          echo "API response: $RESPONSE"
+          NEW_TOKEN=$(echo "$RESPONSE" | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('access_token',''))")
+          if [ -z "$NEW_TOKEN" ]; then
+            echo "ERROR: Could not extract new token from response."
+            exit 1
+          fi
+          echo "new_token=$NEW_TOKEN" >> "$GITHUB_OUTPUT"
+
+      - name: Update INSTAGRAM_ACCESS_TOKEN secret
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "${{ steps.refresh.outputs.new_token }}" | \
+            gh secret set INSTAGRAM_ACCESS_TOKEN --repo "${{ github.repository }}"
+
+      - name: Log new expiry
+        run: |
+          EXPIRY=$(date -d "+60 days" +"%Y-%m-%d" 2>/dev/null || date -v+60d +"%Y-%m-%d")
+          echo "Token refreshed. New approximate expiry: $EXPIRY"
