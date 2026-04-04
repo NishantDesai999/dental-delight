@@ -157,7 +157,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Gujarati:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <!-- Google Analytics 4 — Replace G-XXXXXXXXXX with your actual Measurement ID -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YG2PDPYFNV"></script>
@@ -233,12 +233,13 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="home">
   <div class="hero-left animate-on-scroll">
-    <div class="hero-tag"><span data-i18n="hero.tag">Gentle Dentistry</span></div>
+    <div class="hero-tag"><span data-i18n="hero.tag">Dentist in Vejalpur, Ahmedabad</span></div>
     <h1 data-i18n-html="hero.h1">
       <span class="italic teal">Pure</span> care.<br>
       <span class="italic">Gentle</span> hands.<br>
       Healthy smiles.
     </h1>
+    <p class="hero-sub hero-sub--location" aria-label="Location">Dr. Disha Goria · Dental Clinic, Vejalpur, Ahmedabad</p>
     <p class="hero-sub" data-i18n="hero.sub">Dr. Disha Goria's Pure Cure philosophy means treating only what's needed — with precision, compassion, and zero unnecessary procedures.</p>
     <div class="hero-actions">
       <button class="btn-primary open-modal"><i data-lucide="message-circle"></i><span data-i18n="hero.cta_wa">WhatsApp to Book</span></button>
@@ -335,7 +336,7 @@
 <!-- ===================== DOCTOR ===================== -->
 <section class="doctor" id="doctor">
   <div class="doctor-visual animate-on-scroll">
-    <img src="images/dr-disha.png" alt="Dr. Disha Goria, BDS – Dental Delight Pure Cure, Vejalpur Ahmedabad" class="doc-photo">
+    <img src="images/dr-disha.png" alt="Dr. Disha Goria, BDS – Dental Delight Pure Cure, Vejalpur Ahmedabad" class="doc-photo" width="800" height="800" loading="lazy">
     <div class="doc-vis-overlay">
       <div class="doc-vis-name">Dr. Disha Goria</div>
       <div class="doc-vis-qual">BDS · Founder</div>
@@ -570,7 +571,7 @@
     <div class="section-tag" data-i18n="contact.tag">Find Us</div>
     <h2 data-i18n-html="contact.heading">Visit <span class="teal">Dental Delight</span></h2>
     <p class="section-intro" data-i18n="contact.intro">Located in Vejalpur, Ahmedabad. Walk-ins welcome — appointments preferred for minimal wait time.</p>
-    <div class="contact-items">
+    <address class="contact-items">
       <div class="contact-item">
         <div class="contact-icon" aria-hidden="true"><i data-lucide="map-pin"></i></div>
         <div>
@@ -599,7 +600,7 @@
           <a href="https://maps.google.com/?q=Dental+Delight+Pure+Cure+Vejalpur+Ahmedabad" target="_blank" rel="noopener" data-i18n="contact.maps_link">Get Directions →</a>
         </div>
       </div>
-    </div>
+    </address>
 
     <!-- Google Maps Embed -->
     <div class="contact-map animate-on-scroll" style="--delay:0.1s">
@@ -709,7 +710,7 @@
   </div>
 </div>
 
-<script src="https://unpkg.com/lucide@0.441.0/dist/umd/lucide.min.js"></script>
+<script src="https://unpkg.com/lucide@0.441.0/dist/umd/lucide.min.js" defer></script>
 <script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>

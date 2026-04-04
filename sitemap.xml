@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dental-delight.netlify.app/</loc>
     <lastmod>2026-04-04</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dental-delight.netlify.app/images/dr-disha.png</image:loc>
+      <image:title>Dr. Disha Goria, BDS – Dental Delight Pure Cure, Vejalpur Ahmedabad</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dental-delight.netlify.app/images/card.png</image:loc>
+      <image:title>Dental Delight Pure Cure – Dental Clinic in Vejalpur, Ahmedabad</image:title>
+    </image:image>
   </url>
 </urlset>
