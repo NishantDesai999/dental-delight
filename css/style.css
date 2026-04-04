@@ -465,18 +465,22 @@ h1 {
   align-items: center; justify-content: center;
   gap: 1.25rem; position: relative; overflow: hidden;
 }
-.doc-avatar {
-  width: 90px; height: 90px; border-radius: 50%;
-  background: var(--teal-dim); border: 2px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
+.doc-photo {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 15%;
 }
-.doc-avatar i { width: 48px; height: 48px; color: var(--text-secondary); }
-.doc-vis-name  { font-weight: 700; font-size: 1rem; text-align: center; color: var(--navy); }
+.doc-vis-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(26,43,107,0.88) 0%, rgba(26,43,107,0.5) 60%, transparent 100%);
+  padding: 3rem 1rem 1rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+}
+.doc-vis-name  { font-weight: 700; font-size: 1rem; text-align: center; color: #fff; }
 .doc-vis-qual  { font-size: 0.65rem; color: var(--teal); letter-spacing: 0.1em; text-transform: uppercase; text-align: center; }
 .doc-vis-badge {
-  background: var(--teal-dim); border: 1px solid var(--border);
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
   border-radius: 100px; padding: 0.35rem 1rem;
-  font-size: 0.68rem; color: var(--navy); font-weight: 600; letter-spacing: 0.07em;
+  font-size: 0.68rem; color: #fff; font-weight: 600; letter-spacing: 0.07em;
 }
 .doctor-name-big {
   font-family: 'Playfair Display', serif;
@@ -865,6 +869,7 @@ footer {
   /* Doctor */
   .doctor { grid-template-columns: 1fr; gap: 2.5rem; }
   .doctor-visual { aspect-ratio: 4/3; }
+  .doc-vis-overlay { display: none; }
 
   /* Reviews */
   .reviews-top { flex-direction: column; align-items: flex-start; }
