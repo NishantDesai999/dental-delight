@@ -145,6 +145,17 @@ section { padding: 6rem 7vw; }
   color: var(--teal); margin-bottom: 0.75rem; font-weight: 600;
 }
 
+/* Center section headers across all resolutions */
+.philosophy > .animate-on-scroll,
+.services-head > .animate-on-scroll,
+.reviews-top > .animate-on-scroll,
+.doctor > .animate-on-scroll,
+.faq > .animate-on-scroll {
+  text-align: center;
+}
+.contact > .animate-on-scroll { text-align: center; }
+.contact-items { text-align: left; }
+
 h2 {
   font-size: clamp(1.7rem, 3vw, 2.5rem);
   font-weight: 700; line-height: 1.15;
@@ -593,6 +604,26 @@ h1 {
 @media (max-width: 480px) { .ig-posts-grid { grid-template-columns: 1fr; } }
 @media (min-width: 481px) and (max-width: 768px) { .ig-posts-grid { grid-template-columns: repeat(2, 1fr); } }
 
+/* ── Instagram Widget Container (Third-party embed) ───────── */
+.ig-widget-container {
+  min-height: 100px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.ig-widget-container .elfsight-app-545a97e3-1f01-4d0a-a6d1-abd6efc6a041 {
+  width: 100%;
+}
+.ig-widget-placeholder {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-style: italic;
+  padding: 2rem;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+}
+
 /* ============================================================
    CONTACT
    ============================================================ */
@@ -843,6 +874,13 @@ footer {
   /* Contact */
   .contact { grid-template-columns: 1fr; gap: 2.5rem; }
 
+  /* FAQ */
+  .faq { padding: 3rem 6vw; }
+  .faq h2 { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+  .faq-list { gap: 0.6rem; }
+  .faq-question { padding: 1rem 1rem; font-size: 0.9rem; }
+  .faq-answer { padding: 0 1rem 1rem; font-size: 0.85rem; }
+
   /* Footer */
   footer {
     grid-template-columns: 1fr 1fr;
@@ -870,6 +908,12 @@ footer {
 
   /* Footer */
   footer { grid-template-columns: 1fr; grid-template-areas: "brand" "links" "connect" "bottom"; }
+
+  /* FAQ */
+  .faq { padding: 2.5rem 4vw; }
+  .faq h2 { font-size: 1.3rem; }
+  .faq-question { padding: 0.9rem 0.8rem; font-size: 0.85rem; }
+  .faq-answer { padding: 0 0.8rem 0.9rem; font-size: 0.82rem; }
 }
 
 /* ============================================================
@@ -877,6 +921,7 @@ footer {
    ============================================================ */
 @media (min-width: 481px) and (max-width: 768px) {
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .faq { padding: 3.5rem 8vw; }
 }
 
 /* ============================================================
@@ -946,4 +991,163 @@ footer {
 
 @media (max-width: 768px) {
   .lang-switcher { display: none; }
+}
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.announcement-bar {
+  background: var(--navy-dark);
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.announcement-bar a {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 600;
+}
+.announcement-bar a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  .announcement-bar {
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================================
+   HERO — Google Rating Card
+   ============================================================ */
+.hero-stat-card--rating {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border: 1px solid var(--teal);
+}
+.hero-stat-card--rating a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.hero-stat-card--rating .hero-stat-icon {
+  color: #FBBC05;
+}
+.hero-stat-card--rating .hero-stat-num {
+  color: var(--white);
+}
+.hero-stat-card--rating .hero-stat-label {
+  color: rgba(255,255,255,0.8);
+}
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+.faq {
+  padding: 4rem 1.5rem;
+  background: var(--bg-alt);
+}
+.faq > .animate-on-scroll { text-align: center; }
+.faq h2 {
+  text-align: center;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  margin-top: 0.4rem;
+}
+.faq .section-intro {
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0.6rem auto 0;
+  font-size: 0.95rem;
+}
+.faq-list {
+  max-width: 720px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition);
+}
+.faq-item:hover {
+  box-shadow: 0 4px 16px rgba(26,43,107,0.08);
+}
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 1.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  transition: color var(--transition);
+}
+.faq-question:hover {
+  color: var(--navy-light);
+}
+.faq-question.open {
+  color: var(--teal);
+}
+.faq-chevron {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform var(--transition);
+}
+.faq-question.open .faq-chevron {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  padding: 0 1.3rem 1.2rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.faq-answer p {
+  margin: 0;
+}
+
+/* ============================================================
+   CONTACT — Google Maps Embed
+   ============================================================ */
+.contact-map {
+  margin-top: 2rem;
+}
+.contact-map iframe {
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+/* ============================================================
+   MODAL — Privacy Note
+   ============================================================ */
+.form-privacy-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  line-height: 1.5;
 }
