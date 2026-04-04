@@ -285,81 +285,35 @@
     dateInput.setAttribute('min', today);
   }
 
-  /* ── 8. Instagram Feed ─────────────────────────────────── */
-  function loadInstagramFeed() {
-    var feedEl = document.querySelector('.instagram-feed');
-    var gridEl = document.getElementById('ig-posts-grid');
-    if (!feedEl || !gridEl) return;
-
-    fetch('data/instagram.json')
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        var posts = data.posts || [];
-        if (!posts.length) {
-          feedEl.style.display = 'none';
-          return;
-        }
-
-        posts.forEach(function (post) {
-          var card = document.createElement('div');
-          card.className = 'ig-card';
-
-          var img = document.createElement('img');
-          img.src = post.media_url;
-          img.alt = 'Instagram post';
-          img.loading = 'lazy';
-
-          var body = document.createElement('div');
-          body.className = 'ig-card-body';
-
-          var caption = document.createElement('p');
-          caption.className = 'ig-card-caption';
-          var raw = (post.caption || '').trim();
-          caption.textContent = raw.length > 120 ? raw.slice(0, 120) + '…' : raw;
-
-          var link = document.createElement('a');
-          link.className = 'ig-card-link';
-          link.href = post.permalink;
-          link.target = '_blank';
-          link.rel = 'noopener';
-          link.textContent = 'View post →';
-
-          body.appendChild(caption);
-          body.appendChild(link);
-          card.appendChild(img);
-          card.appendChild(body);
-          gridEl.appendChild(card);
-        });
-
-        // Re-trigger fade-in observer for newly added cards
-        if ('IntersectionObserver' in window) {
-          var cardObserver = new IntersectionObserver(
-            function (entries) {
-              entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add('visible');
-                  cardObserver.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-          );
-          gridEl.querySelectorAll('.ig-card').forEach(function (card) {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            cardObserver.observe(card);
-          });
-        }
-      })
-      .catch(function () {
-        if (feedEl) feedEl.style.display = 'none';
-      });
+  /* ── 8. Dynamic Copyright Year ─────────────────────────── */
+  var yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
   }
 
-  loadInstagramFeed();
+  /* ── 9. FAQ Accordion ─────────────────────────────────── */
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var expanded = this.getAttribute('aria-expanded') === 'true';
+      var answer = this.nextElementSibling;
 
-  /* ── 9. Reviews Carousel ─────────────────────────────── */
+      // Close all other FAQs
+      document.querySelectorAll('.faq-question').forEach(function(otherBtn) {
+        if (otherBtn !== btn) {
+          otherBtn.setAttribute('aria-expanded', 'false');
+          otherBtn.nextElementSibling.hidden = true;
+          otherBtn.classList.remove('open');
+        }
+      });
+
+      // Toggle current FAQ
+      this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      answer.hidden = expanded;
+      this.classList.toggle('open', !expanded);
+    });
+  });
+
+  /* ── 10. Reviews Carousel ─────────────────────────────── */
   (function initReviewsCarousel() {
     var viewport = document.getElementById('reviews-viewport');
     var track = document.getElementById('reviews-track');
