@@ -163,7 +163,7 @@
       'modal.service_opt10': 'General Checkup',
       'modal.date_label':    'Preferred Date',
       'modal.submit':        'Send via WhatsApp',
-      'modal.privacy':       '🔒 Your details are only used to book your appointment via WhatsApp. We never share or sell your data.',
+      'modal.privacy':       'Your details are only used to book your appointment via WhatsApp. We never share or sell your data.',
 
       /* Instagram */
       'ig.tag':        'On Instagram',
@@ -346,7 +346,7 @@
       'modal.service_opt10': 'सामान्य जांच',
       'modal.date_label':    'पसंदीदा तारीख',
       'modal.submit':        'WhatsApp के माध्यम से भेजें',
-      'modal.privacy':       '🔒 आपका विवरण केवल अपॉइंटमेंट बुक करने के लिए उपयोग किया जाता है। हम आपका डेटा कभी साझा या बेचते नहीं हैं।',
+      'modal.privacy':       'आपका विवरण केवल अपॉइंटमेंट बुक करने के लिए उपयोग किया जाता है। हम आपका डेटा कभी साझा या बेचते नहीं हैं।',
 
       /* Instagram */
       'ig.tag':        'Instagram पर',
@@ -529,7 +529,7 @@
       'modal.service_opt10': 'સામાન્ય તપાસ',
       'modal.date_label':    'પસંદ કરેલી તારીખ',
       'modal.submit':        'WhatsApp દ્વારા મોકલો',
-      'modal.privacy':       '🔒 તમારી વિગતો ફક્ત એપોઇન્ટમેન્ટ બુક કરવા માટે વપરાય છે. અમે તમારો ડેટા ક્યારેય શેર અથવા વેચતા નથી.',
+      'modal.privacy':       'તમારી વિગતો ફક્ત એપોઇન્ટમેન્ટ બુક કરવા માટે વપરાય છે. અમે તમારો ડેટા ક્યારેય શેર અથવા વેચતા નથી.',
 
       /* Instagram */
       'ig.tag':        'Instagram પર',
