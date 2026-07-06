@@ -12,7 +12,8 @@
   <meta property="og:locale" content="en_IN">
   <meta property="og:url" content="https://dental-delight.netlify.app/">
   <meta property="og:image" content="https://dental-delight.netlify.app/images/card.png">
-  <meta name="theme-color" content="#1E3A8A">
+  <!-- Kept in sync manually with --navy in css/style.css -->
+  <meta name="theme-color" content="#1A2B6B">
   <meta name="robots" content="index, follow">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dental Delight Pure Cure | Dr. Disha Goria | Vejalpur, Ahmedabad">
@@ -173,15 +174,16 @@
 <!-- ===================== ANNOUNCEMENT BAR ===================== -->
 <div class="announcement-bar" aria-label="Clinic hours and contact">
   <span>Mon–Fri: 8AM–4PM &nbsp;|&nbsp; Sat: 10AM–1PM &nbsp;|&nbsp; Sun: Closed</span>
-  <a href="tel:+919023039280">📞 +91 90230 39280</a>
+  <a href="tel:+919023039280"><i data-lucide="phone" aria-hidden="true"></i> +91 90230 39280</a>
 </div>
 
 <!-- ===================== NAV ===================== -->
 <nav id="navbar">
   <a href="#" class="logo-wrap" aria-label="Dental Delight Home">
+    <!-- Brand mark: colors intentionally pinned to --navy/--teal tokens -->
     <svg class="logo-mark" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="42" height="42" rx="9" fill="#1A2B6B"/>
-      <path d="M9 7 L9 35 L19 35 C29.5 35 35.5 29 35.5 21 C35.5 13 29.5 7 19 7 Z" fill="none" stroke="#3EC8C8" stroke-width="2.2" stroke-linejoin="round"/>
+      <rect width="42" height="42" rx="9" fill="var(--navy)"/>
+      <path d="M9 7 L9 35 L19 35 C29.5 35 35.5 29 35.5 21 C35.5 13 29.5 7 19 7 Z" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linejoin="round"/>
       <path d="M16.5 13.5 C15 15.5 14 18 14 20 C14 22 15 23.5 16 24.5 L17 27 C17.5 28.5 19 29.5 20.5 28.5 C22 27.5 22 25.5 22 25.5 C22 25.5 22.5 27.5 24 28.5 C25.5 29.5 27 28.5 27.5 27 L28.5 24.5 C29.5 23.5 30.5 22 30.5 20 C30.5 18 29.5 15.5 28 13.5 C27 12 25.5 11 23.5 12 C22.5 12.5 22 13.5 22 13.5 C22 13.5 21.5 12.5 20.5 12 C18.5 11 17.5 12 16.5 13.5 Z" fill="none" stroke="white" stroke-width="1.4" stroke-linejoin="round"/>
     </svg>
     <div>
@@ -205,7 +207,7 @@
       <button class="lang-btn" data-lang="hi">हिंदी</button>
       <button class="lang-btn" data-lang="gu">ગુજરાતી</button>
     </div>
-    <button class="nav-cta open-modal" aria-label="Book Appointment" data-i18n="nav.book">Book Appointment</button>
+    <button class="btn-primary btn-sm open-modal" aria-label="Book Appointment" data-i18n="nav.book">Book Appointment</button>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-drawer">
       <span></span><span></span><span></span>
     </button>
@@ -608,7 +610,7 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229.5333618995232!2d72.51283249385193!3d23.00416513792426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9bd8c0650dc7%3A0xc69442f21e72812f!2sDental%20Delight%20-%20Pure%20Cure%20By%20Dr.Disha%20Goria!5e0!3m2!1sen!2sin!4v1775286931987!5m2!1sen!2sin"
         width="100%"
         height="300"
-        style="border:0; border-radius:12px;"
+        style="border:0;"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
@@ -620,8 +622,8 @@
   <div class="cta-box animate-on-scroll" style="--delay:0.15s">
     <h3 data-i18n="contact.cta_title">Book Your Appointment</h3>
     <p data-i18n="contact.cta_desc">Send us a WhatsApp message with your name, preferred date, and treatment needed. We'll confirm your slot within 2 hours.</p>
-    <button class="cta-wa open-modal"><i data-lucide="message-circle"></i><span data-i18n="hero.cta_wa">WhatsApp to Book</span></button>
-    <a href="tel:+919023039280" class="cta-call"><i data-lucide="phone"></i><span data-i18n="contact.call_btn">Call the Clinic</span></a>
+    <button class="btn-primary open-modal"><i data-lucide="message-circle"></i><span data-i18n="hero.cta_wa">WhatsApp to Book</span></button>
+    <a href="tel:+919023039280" class="btn-outline"><i data-lucide="phone"></i><span data-i18n="contact.call_btn">Call the Clinic</span></a>
   </div>
 </section>
 
@@ -629,9 +631,10 @@
 <footer>
   <div class="footer-brand">
     <a href="#" class="logo-wrap" aria-label="Dental Delight Home">
+      <!-- Brand mark: colors intentionally pinned to --navy/--teal tokens -->
       <svg class="logo-mark" viewBox="0 0 42 42" fill="none" aria-hidden="true">
-        <rect width="42" height="42" rx="9" fill="#1A2B6B"/>
-        <path d="M9 7 L9 35 L19 35 C29.5 35 35.5 29 35.5 21 C35.5 13 29.5 7 19 7 Z" fill="none" stroke="#3EC8C8" stroke-width="2.2" stroke-linejoin="round"/>
+        <rect width="42" height="42" rx="9" fill="var(--navy)"/>
+        <path d="M9 7 L9 35 L19 35 C29.5 35 35.5 29 35.5 21 C35.5 13 29.5 7 19 7 Z" fill="none" stroke="var(--teal)" stroke-width="2.2" stroke-linejoin="round"/>
         <path d="M16.5 13.5 C15 15.5 14 18 14 20 C14 22 15 23.5 16 24.5 L17 27 C17.5 28.5 19 29.5 20.5 28.5 C22 27.5 22 25.5 22 25.5 C22 25.5 22.5 27.5 24 28.5 C25.5 29.5 27 28.5 27.5 27 L28.5 24.5 C29.5 23.5 30.5 22 30.5 20 C30.5 18 29.5 15.5 28 13.5 C27 12 25.5 11 23.5 12 C22.5 12.5 22 13.5 22 13.5 C22 13.5 21.5 12.5 20.5 12 C18.5 11 17.5 12 16.5 13.5 Z" fill="none" stroke="white" stroke-width="1.4" stroke-linejoin="round"/>
       </svg>
       <div>
@@ -661,13 +664,20 @@
 <!-- Back to Top -->
 <button class="back-to-top" id="back-to-top" aria-label="Back to top"><i data-lucide="chevron-up"></i></button>
 
-<!-- Mobile Sticky CTA -->
-<a href="https://wa.me/919023039280" class="sticky-cta" target="_blank" rel="noopener"><i data-lucide="message-circle" style="width:16px;height:16px"></i> <span data-i18n="sticky.cta_wa">Connect On WhatsApp</span></a>
+<!-- Contact Bar -->
+<div class="contact-bar" role="group" aria-label="Contact us">
+  <button class="contact-bar-half contact-bar-half--wa open-modal" aria-label="Book on WhatsApp">
+    <i data-lucide="message-circle"></i><span data-i18n="contact_bar.wa">WhatsApp</span>
+  </button>
+  <a href="tel:+919023039280" class="contact-bar-half contact-bar-half--call" aria-label="Call the clinic">
+    <i data-lucide="phone"></i><span data-i18n="contact_bar.call">Call</span>
+  </a>
+</div>
 
 <!-- ===================== APPOINTMENT MODAL ===================== -->
 <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
   <div class="modal">
-    <button class="modal-close" id="modal-close" aria-label="Close modal">✕</button>
+    <button class="modal-close" id="modal-close" aria-label="Close modal"><i data-lucide="x"></i></button>
     <div class="modal-header">
       <div class="modal-icon" aria-hidden="true"><i data-lucide="calendar"></i></div>
       <h3 id="modal-title" data-i18n="modal.title">Book an Appointment</h3>
@@ -703,8 +713,8 @@
         <input type="date" id="patient-date" name="date" autocomplete="off">
       </div>
       <button type="submit" class="btn-primary form-submit"><i data-lucide="message-circle"></i><span data-i18n="modal.submit">Send via WhatsApp</span></button>
-      <p class="form-privacy-note" data-i18n="modal.privacy">
-        🔒 Your details are only used to book your appointment via WhatsApp. We never share or sell your data.
+      <p class="form-privacy-note">
+        <i data-lucide="lock" aria-hidden="true"></i> <span data-i18n="modal.privacy">Your details are only used to book your appointment via WhatsApp. We never share or sell your data.</span>
       </p>
     </form>
   </div>

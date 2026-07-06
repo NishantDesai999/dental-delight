@@ -28,8 +28,9 @@
       'hero.cta_wa':      'WhatsApp to Book',
       'hero.cta_services':'Our Services',
 
-      /* Sticky CTA */
-      'sticky.cta_wa':    'Connect On WhatsApp',
+      /* Contact Bar */
+      'contact_bar.wa':   'WhatsApp',
+      'contact_bar.call': 'Call',
 
       /* Stats */
       'stat.patients':    'Patients Treated',
@@ -210,8 +211,9 @@
       'hero.cta_wa':      'WhatsApp पर बुक करें',
       'hero.cta_services':'हमारी सेवाएं →',
 
-      /* Sticky CTA */
-      'sticky.cta_wa':    'WhatsApp पर कनेक्ट करें',
+      /* Contact Bar */
+      'contact_bar.wa':   'WhatsApp',
+      'contact_bar.call': 'कॉल करें',
 
       /* Stats */
       'stat.patients':    'मरीज़ों का उपचार',
@@ -392,8 +394,9 @@
       'hero.cta_wa':      'WhatsApp પર બુક કરો',
       'hero.cta_services':'અમારી સેવાઓ →',
 
-      /* Sticky CTA */
-      'sticky.cta_wa':    'WhatsApp પર કનેક્ટ કરો',
+      /* Contact Bar */
+      'contact_bar.wa':   'WhatsApp',
+      'contact_bar.call': 'કૉલ કરો',
 
       /* Stats */
       'stat.patients':    'દર્દીઓની સારવાર',
