@@ -28,8 +28,9 @@
       'hero.cta_wa':      'WhatsApp to Book',
       'hero.cta_services':'Our Services',
 
-      /* Sticky CTA */
-      'sticky.cta_wa':    'Connect On WhatsApp',
+      /* Contact Bar */
+      'contact_bar.wa':   'WhatsApp',
+      'contact_bar.call': 'Call',
 
       /* Stats */
       'stat.patients':    'Patients Treated',
@@ -162,7 +163,7 @@
       'modal.service_opt10': 'General Checkup',
       'modal.date_label':    'Preferred Date',
       'modal.submit':        'Send via WhatsApp',
-      'modal.privacy':       '🔒 Your details are only used to book your appointment via WhatsApp. We never share or sell your data.',
+      'modal.privacy':       'Your details are only used to book your appointment via WhatsApp. We never share or sell your data.',
 
       /* Instagram */
       'ig.tag':        'On Instagram',
@@ -210,8 +211,9 @@
       'hero.cta_wa':      'WhatsApp पर बुक करें',
       'hero.cta_services':'हमारी सेवाएं →',
 
-      /* Sticky CTA */
-      'sticky.cta_wa':    'WhatsApp पर कनेक्ट करें',
+      /* Contact Bar */
+      'contact_bar.wa':   'WhatsApp',
+      'contact_bar.call': 'कॉल करें',
 
       /* Stats */
       'stat.patients':    'मरीज़ों का उपचार',
@@ -344,7 +346,7 @@
       'modal.service_opt10': 'सामान्य जांच',
       'modal.date_label':    'पसंदीदा तारीख',
       'modal.submit':        'WhatsApp के माध्यम से भेजें',
-      'modal.privacy':       '🔒 आपका विवरण केवल अपॉइंटमेंट बुक करने के लिए उपयोग किया जाता है। हम आपका डेटा कभी साझा या बेचते नहीं हैं।',
+      'modal.privacy':       'आपका विवरण केवल अपॉइंटमेंट बुक करने के लिए उपयोग किया जाता है। हम आपका डेटा कभी साझा या बेचते नहीं हैं।',
 
       /* Instagram */
       'ig.tag':        'Instagram पर',
@@ -392,8 +394,9 @@
       'hero.cta_wa':      'WhatsApp પર બુક કરો',
       'hero.cta_services':'અમારી સેવાઓ →',
 
-      /* Sticky CTA */
-      'sticky.cta_wa':    'WhatsApp પર કનેક્ટ કરો',
+      /* Contact Bar */
+      'contact_bar.wa':   'WhatsApp',
+      'contact_bar.call': 'કૉલ કરો',
 
       /* Stats */
       'stat.patients':    'દર્દીઓની સારવાર',
@@ -526,7 +529,7 @@
       'modal.service_opt10': 'સામાન્ય તપાસ',
       'modal.date_label':    'પસંદ કરેલી તારીખ',
       'modal.submit':        'WhatsApp દ્વારા મોકલો',
-      'modal.privacy':       '🔒 તમારી વિગતો ફક્ત એપોઇન્ટમેન્ટ બુક કરવા માટે વપરાય છે. અમે તમારો ડેટા ક્યારેય શેર અથવા વેચતા નથી.',
+      'modal.privacy':       'તમારી વિગતો ફક્ત એપોઇન્ટમેન્ટ બુક કરવા માટે વપરાય છે. અમે તમારો ડેટા ક્યારેય શેર અથવા વેચતા નથી.',
 
       /* Instagram */
       'ig.tag':        'Instagram પર',
